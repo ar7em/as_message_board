@@ -1,16 +1,18 @@
-const http = require("http");
-const path = require("path");
 const express = require("express");
-
 const app = express();
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 const port = 3000;
-const httpServer = http.Server(app);
 
-app.get("/", function(req, res){
-  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+app.use(express.static("dist"));
+
+io.on("connection", function(socket){
+  console.log("a user connected");
+  socket.on("disconnect", function(){
+    console.log("user disconnected");
+  });
 });
 
-httpServer.listen(port, function(){
-  // eslint-disable-next-line no-console
+server.listen(port, function(){
   console.log(`listening on *:${port}`);
 });
