@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "main": "client/index.js",
   "scripts": {
-    "start": ""
+    "start": "node server/index.js",
+    "build": "node node_modules/webpack/bin/webpack.js -p --config=webpack.config.babel.js",
+    "watch": "node node_modules/webpack/bin/webpack.js -p --config=webpack.config.babel.js --watch"
   },
   "repository": {
     "type": "git",
@@ -11,6 +13,7 @@
   },
   "author": "molokov.artem@gmail.com",
   "dependencies": {
+    "express": "^4.16.3",
     "history": "^4.7.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.0",
@@ -31,6 +34,7 @@
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
+    "html-webpack-plugin": "^3.1.0",
     "node-sass": "^4.8.3",
     "postcss": "^6.0.21",
     "postcss-css-reset": "^1.0.2",
@@ -41,5 +45,9 @@
     "style-loader": "^0.20.3",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13"
+  },
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": "~5.6.0"
   }
 }

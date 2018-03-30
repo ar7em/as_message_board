@@ -3,7 +3,7 @@ const path = require("path");
 
 export default {
   entry: {
-    app: path.resolve(__dirname, "client" "index.js")
+    app: path.resolve(__dirname, "client", "index.js")
   },
 
   output: {
@@ -12,8 +12,6 @@ export default {
   },
 
   devtool: "source-map",
-
-  watch: true,
 
   resolve: {
     modules: [
@@ -57,5 +55,12 @@ export default {
         ]
       }
     ]
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "client/index.html"
+    })
+  ]
 };
