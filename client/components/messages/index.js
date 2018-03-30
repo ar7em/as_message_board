@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 
 const Messages = (props) => (
   <div>
-    <strong>Chat: </strong>
+    <div>
+      <strong>Chat: {props.chatName}</strong>
+      <a href="#/list">(back to catalogue)</a>
+    </div>
     <ul>
       {
         props.messages.map((item, index) => (
@@ -16,11 +19,14 @@ const Messages = (props) => (
 );
 
 Messages.propTypes = {
-  messages: PropTypes.array.isRequired
+  messages: PropTypes.array.isRequired,
+  chatName: PropTypes.string.isRequired
 };
 
-export const mapStateToProps = (state) => ({
-  messages: state.messages.all
+export const mapStateToProps = (state, ownProps) => ({
+  messages: state.messages.all.filter((item) => (
+    item.chat === ownProps.chatName
+  ))
 });
 
 export default connect(mapStateToProps)(Messages);
