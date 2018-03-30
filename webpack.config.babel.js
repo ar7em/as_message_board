@@ -51,7 +51,7 @@ export default {
           "sass-loader"
         ],
         include: [
-          /src/
+          /client/
         ]
       }
     ]

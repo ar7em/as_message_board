@@ -1,11 +1,17 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Chat from "components/chat";
+import Submit from "components/submit";
+import Messages from "components/messages";
 import { store } from "store";
+
+import style from "./style.css";
 
 const App = () => (
   <Provider store={store}>
-    <Chat />
+    <div className={style.Layout}>
+      <Messages />
+      <Submit />
+    </div>
   </Provider>
 );
 

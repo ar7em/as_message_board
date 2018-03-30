@@ -4,8 +4,8 @@
   "main": "client/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "node node_modules/webpack/bin/webpack.js --config=webpack.config.babel.js",
-    "watch": "node node_modules/webpack/bin/webpack.js --config=webpack.config.babel.js --watch"
+    "build": "node node_modules/webpack/bin/webpack.js --mode production --config=webpack.config.babel.js",
+    "watch": "node node_modules/webpack/bin/webpack.js --mode development --config=webpack.config.babel.js --watch"
   },
   "repository": {
     "type": "git",

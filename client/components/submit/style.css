@@ -1,0 +1,16 @@
+.Submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  height: 20px;
+  padding: 10px 50px;
+
+  &__input {
+    flex-grow: 1;
+  }
+
+  &__send {
+    flex-grow: 0;
+  }
+}
